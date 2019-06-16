@@ -25,6 +25,7 @@ public class Main {
         //calculation.exampleList();
         calculation.exampleMatrix();
         calculation.printArray();
+        calculation.printStars();
     }
 
 }
