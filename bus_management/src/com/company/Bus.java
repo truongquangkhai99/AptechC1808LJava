@@ -7,7 +7,7 @@ public class Bus {
     private String name;
     public static final Integer MAX_TRIPS = 30;
     //relation
-    private ArrayList<Trip> trips = new ArrayList<>();
+    private ArrayList<Trip> trips = new ArrayList<>();//aggregation
 
     public Bus(Integer busId, Integer numberOfSeats, String name) {
         this.busId = busId;
@@ -45,5 +45,10 @@ public class Bus {
 
     public void setTrips(ArrayList<Trip> trips) {
         this.trips = trips;
+    }
+
+    @Override
+    public String toString() {
+        return "busId:"+busId+",number of Seats : "+numberOfSeats+",name :"+name;
     }
 }

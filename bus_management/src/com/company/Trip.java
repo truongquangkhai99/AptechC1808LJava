@@ -1,12 +1,23 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Trip {
     private Integer tripId;
-    private Bus bus;
+    private Bus bus;//relation
     private Date startTime;
     public static final Integer MAX_PERSONS = 80;
+    //relation
+    private ArrayList<Person> persons = new ArrayList<>();
+
+    public ArrayList<Person> getPersons() {
+        return persons;
+    }
+
+    public void setPersons(ArrayList<Person> persons) {
+        this.persons = persons;
+    }
 
     public Trip(Integer tripId, Bus bus, Date startTime) {
         this.tripId = tripId;
@@ -36,5 +47,10 @@ public class Trip {
 
     public void setStartTime(Date startTime) {
         this.startTime = startTime;
+    }
+
+    @Override
+    public String toString() {
+        return "tripId: "+tripId+"Bus: "+bus.toString()+"startTime: "+startTime;
     }
 }
