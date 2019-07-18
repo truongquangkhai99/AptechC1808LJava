@@ -7,6 +7,7 @@ public class Trip {
     private Integer tripId;
     private Bus bus;//relation
     private Date startTime;
+    private int numberOfSeats;
     public static final Integer MAX_PERSONS = 80;
     //relation
     private ArrayList<Person> persons = new ArrayList<>();
@@ -23,8 +24,22 @@ public class Trip {
         this.tripId = tripId;
         this.bus = bus;
         this.startTime = startTime;
+        this.numberOfSeats = this.bus.getNumberOfSeats();
     }
-
+    public void addPerson(Person person) {
+        //Kiem tra xem co them duoc ko ?
+        if(persons.size() + 1 > 1.5*numberOfSeats) {
+            return;
+        }
+        persons.add(person);
+        numberOfSeats--;
+        person.setTrip(this);
+    }
+    public void removePerson(Person person) {
+        persons.remove(person);
+        numberOfSeats++;
+        person.setTrip(null);
+    }
     public Integer getTripId() {
         return tripId;
     }

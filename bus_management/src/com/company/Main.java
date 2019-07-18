@@ -21,17 +21,15 @@ public class Main {
             TimeUnit.SECONDS.sleep(3);
             Passenger passengerHoang = new Passenger("Hoang", "A1234");
             Customer customerA = new Customer("Anonymous","");
-            trip1.getPersons().add(passengerHoang); passengerHoang.setTrip(trip1);
-            trip1.getPersons().add(customerA);customerA.setTrip(trip1);
+            trip1.addPerson(passengerHoang);
+            trip1.addPerson(customerA);
             System.out.println(passengerHoang.toString());
             System.out.println(customerA.toString());
 
             //Xuong xe
-            trip1.getPersons().remove(passengerHoang);
-            passengerHoang.setTrip(null);
+            trip1.removePerson(passengerHoang);
             //Len trip2
-            trip2.getPersons().add(passengerHoang);
-            passengerHoang.setTrip(trip2);
+            trip2.addPerson(passengerHoang);
             //Chuyen trip
             System.out.println("ok");
 
