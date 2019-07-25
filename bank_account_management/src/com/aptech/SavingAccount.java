@@ -1,10 +1,9 @@
 package com.aptech;
 
 public class SavingAccount extends BankAccount{
-    private Float rate;
-    public SavingAccount(String accountNumber, Double balance,
-                         Customer customer, Float rate) {
-        super(accountNumber, balance, customer);
+    private Float rate = 0.0f;
+    public SavingAccount(String accountNumber, Double balance, Float rate) {
+        super(accountNumber, balance);
         this.rate = rate;
     }
 

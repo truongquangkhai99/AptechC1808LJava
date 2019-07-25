@@ -1,15 +1,14 @@
 package com.aptech;
 
 public class BankAccount {
-    private String accountNumber;
-    private Double balance;
+    private String accountNumber = "";
+    private Double balance = 0.0;
     //relation
     private Customer customer;
 
-    public BankAccount(String accountNumber, Double balance, Customer customer) {
+    public BankAccount(String accountNumber, Double balance) {
         this.accountNumber = accountNumber;
         this.balance = balance;
-        this.customer = customer;
     }
 
     public String getAccountNumber() {
@@ -55,6 +54,6 @@ public class BankAccount {
     public String toString() {
         return "account Number:"+accountNumber+
                 ",Balance: "+balance+
-                ",customer: "+customer.toString();
+                ",customer: "+customer ==null? "" : customer.toString();
     }
 }

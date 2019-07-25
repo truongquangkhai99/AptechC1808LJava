@@ -2,9 +2,8 @@ package com.aptech;
 
 public class CheckingAccount extends BankAccount{
 
-    public CheckingAccount(String accountNumber, Double balance,
-                           Customer customer) {
-        super(accountNumber, balance, customer);
+    public CheckingAccount(String accountNumber, Double balance) {
+        super(accountNumber, balance);
     }
 
     @Override

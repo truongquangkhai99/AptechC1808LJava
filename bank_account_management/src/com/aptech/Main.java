@@ -12,6 +12,8 @@ public class Main {
             System.out.println(mrHoang);
         }
         */
+        BankEmployee bankEmployee = new BankEmployee();
+        bankEmployee.supportCustomer();
 
 
     }

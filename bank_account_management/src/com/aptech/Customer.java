@@ -5,7 +5,7 @@ import java.util.*;
 public class Customer {
     private String fullName, customerId;
     private Date dateOfBirth;
-    private ArrayList<BankAccount> bankAccounts;
+    private ArrayList<BankAccount> bankAccounts = new ArrayList<>();
     private static Integer MAX_ACCOUNTS = 10;
     protected Boolean addBankAccount(BankAccount bankAccount){
         if(bankAccounts.size() >= 10){
@@ -24,7 +24,37 @@ public class Customer {
         this.customerId = customerId;
         this.dateOfBirth = dateOfBirth;
     }
+    private Boolean checkWithdraw(Double amount) {
+        for(BankAccount bankAccount: bankAccounts) {
+            if(bankAccount instanceof CheckingAccount) {
+                if(bankAccount.getBalance() - 100000.0 >= amount) {
+                    return true;
+                }else {
+                    Double remains = amount - bankAccount.getBalance() + 100000.0;
+                    for(BankAccount bankAccount1:bankAccounts) {
+                        if(bankAccount1 instanceof SavingAccount) {
+                            if(bankAccount1.getBalance() - 100000.0 >= remains) {
+                                return true;
+                            } else {
+                                remains = remains - bankAccount1.getBalance() + 100000.0;
+                            }
+                        }
+                    }
+                }
+                break;
+            }
+        }
+        return false;
+    }
     public Boolean withdraw(Double amount) {
+        //withdraw CheckingAccount
+        //withdraw SavingAccount
+        if(!checkWithdraw(amount)) {
+            System.out.println("Ko rut duoc");
+            return false;
+        }
+        //Tien hanh rut
+        System.out.println("Rut duoc");
         return true;
     }
     public String getFullName() {
