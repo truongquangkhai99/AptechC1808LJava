@@ -15,13 +15,13 @@ import java.util.Hashtable;
 public class ExamTest {
     private Hashtable<String, Exam> hashtable;
     private Hashtable<String, Exam> secondHashtable;
-    String textFileName = "C:\\studentmark.txt";
+    String textFileName = "C:\\temp\\studentmark.txt";
 
     
     
     public void makeExams(){
         hashtable = new Hashtable<>();
-        for(int i = 0; i < 2; i++) {
+        for(int i = 0; i < 1; i++) {
             Exam exam = Exam.input();
             if(exam != null) {
                 String key = String.format("%s%s", exam.getRollNumber(), exam.getExamId());
@@ -31,7 +31,8 @@ public class ExamTest {
     }
     public void saveListToTextFile() {
         try {
-            FileOutputStream file = new FileOutputStream(new File(textFileName));
+            FileOutputStream file;
+            file = new FileOutputStream(textFileName);
             ObjectOutputStream objectOut = new ObjectOutputStream(file);
             objectOut.writeObject(hashtable);
             

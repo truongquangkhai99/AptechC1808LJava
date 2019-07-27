@@ -9,6 +9,9 @@ public class Ex07 {
         ExamTest examTest = new ExamTest();
         examTest.makeExams();
         examTest.saveListToTextFile();
+        
+        examTest.readObjectFromTextFile();
+        examTest.printHashtable(examTest.getSecondHashtable());
     }
     
 }

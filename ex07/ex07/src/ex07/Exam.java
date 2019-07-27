@@ -65,19 +65,25 @@ public class Exam implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return String.format("rollNumber: %s, fullName = %s, "
-                + "examId = %s, examName = %s, Mark = %0.2f", 
-                rollNumber, fullName, examId, examName, mark);
+    public String toString() {     
+        return "rollNumber:"+rollNumber+",fullName ="+fullName +
+                ",examId = " + examId + "examName = "+examName+
+                ", Mark = "+mark;
     }
     public static Exam input() {
         try {
-            Console console = System.console();
-            String rollNumber = console.readLine("Please enter rollNumber : ");
-            String fullName = console.readLine("Please enter fullName : ");
-            String examId = console.readLine("Please enter examId : ");
-            String examName = console.readLine("Please enter examName : ");
-            float mark = Float.valueOf(console.readLine("Please enter mark : "));     
+            BufferedReader reader =  
+                   new BufferedReader(new InputStreamReader(System.in)); 
+            System.out.println("Please enter rollNumber : ");
+            String rollNumber = reader.readLine();
+            System.out.println("Please enter fullName : ");
+            String fullName = reader.readLine();
+            System.out.println("Please enter examId : ");
+            String examId = reader.readLine();
+            System.out.println("Please enter examName : ");
+            String examName = reader.readLine();
+            System.out.println("Please enter mark : ");
+            float mark = Float.valueOf(reader.readLine());     
             return new Exam(rollNumber, fullName, examId, examName, mark);
         } catch(Exception e) {
             System.out.println("Error input Exam information: "+e);
