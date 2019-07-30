@@ -6,12 +6,16 @@
 package ex07;
 public class Ex07 {
     public static void main(String[] args) {
+        /*
         ExamTest examTest = new ExamTest();
         examTest.makeExams();
         examTest.saveListToTextFile();
         
         examTest.readObjectFromTextFile();
         examTest.printHashtable(examTest.getSecondHashtable());
+*/
+        ThreadTest threadTest = new ThreadTest();
+        threadTest.testThreads();
     }
     
 }
